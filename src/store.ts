@@ -10,7 +10,7 @@ export type Action =
   | { type: 'clear'; id: number }
   | { type: 'load'; classes: Klass[] };
 
-export const COLORS = ['#ff8a4c', '#8b6cff', '#22d3ee', '#f43f73', '#a3e635', '#facc15', '#e879f9', '#38bdf8'];
+export const COLORS = ['#ffb4a2', '#c8b6ff', '#a8e6cf', '#ffc8dd', '#bde0fe', '#fdf1a7', '#e4c1f9', '#ffd6a5'];
 export const colorOf = (i: number) => COLORS[i % COLORS.length];
 
 let nextId = 1;

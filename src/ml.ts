@@ -86,7 +86,8 @@ export async function train(data: Float32Array[][], o: TrainOptions, onProgress:
       callbacks: {
         onEpochEnd: async (epoch, logs) => {
           onProgress({ epoch: epoch + 1, epochs: o.epochs, loss: logs?.loss ?? 0, acc: logs?.acc ?? logs?.accuracy ?? 0 });
-          await tf.nextFrame();
+          // A timer yield (not rAF) keeps training going when the tab is in the background.
+          await new Promise((r) => setTimeout(r));
         },
       },
     });

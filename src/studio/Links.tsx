@@ -40,7 +40,7 @@ export function Links({ grid, cards, train, preview, classes, mode }: Props) {
       }
       const from: [number, number] = [t.right - box.left, ty];
       const to: [number, number] = [p.left - box.left, p.top + p.height / 2 - box.top];
-      out.push({ key: 'out', d: curve(...from, ...to), from, to, color: '#22d3ee' });
+      out.push({ key: 'out', d: curve(...from, ...to), from, to, color: '#ffd6a5' });
       setPaths(out);
     };
     draw();
@@ -60,8 +60,8 @@ export function Links({ grid, cards, train, preview, classes, mode }: Props) {
       <defs>
         {paths.map((p) => (
           <linearGradient key={p.key} id={`lk-${p.key}`} gradientUnits="userSpaceOnUse" x1={p.from[0]} y1={p.from[1]} x2={p.to[0]} y2={p.to[1]}>
-            <stop offset="0" stopColor={p.key === 'out' ? '#8b6cff' : p.color} />
-            <stop offset="1" stopColor={p.key === 'out' ? '#22d3ee' : '#8b6cff'} />
+            <stop offset="0" stopColor={p.key === 'out' ? '#c8b6ff' : p.color} />
+            <stop offset="1" stopColor={p.key === 'out' ? '#ffd6a5' : '#c8b6ff'} />
           </linearGradient>
         ))}
       </defs>
@@ -69,7 +69,7 @@ export function Links({ grid, cards, train, preview, classes, mode }: Props) {
         <g key={p.key}>
           <path d={p.d} className="link-base" stroke={`url(#lk-${p.key})`} />
           <path d={p.d} className="link-flow" stroke={`url(#lk-${p.key})`} />
-          <circle className="link-end" cx={p.from[0]} cy={p.from[1]} r="4" fill={p.key === 'out' ? '#8b6cff' : p.color} />
+          <circle className="link-end" cx={p.from[0]} cy={p.from[1]} r="4" fill={p.key === 'out' ? '#c8b6ff' : p.color} />
         </g>
       ))}
     </svg>

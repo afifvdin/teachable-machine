@@ -21,13 +21,13 @@ export function NetworkArt() {
     <svg className="network-art" viewBox="0 0 560 420" role="img" aria-label="Three image classes flowing into a model that outputs predictions">
       <defs>
         <radialGradient id="core-g" cx="50%" cy="40%" r="60%">
-          <stop offset="0" stopColor="#b9a8ff" />
-          <stop offset=".55" stopColor="#6d4cff" />
-          <stop offset="1" stopColor="#1b1340" />
+          <stop offset="0" stopColor="#f3edff" />
+          <stop offset=".55" stopColor="#b39dff" />
+          <stop offset="1" stopColor="#3a3054" />
         </radialGradient>
         <linearGradient id="ring-g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#8b6cff" />
-          <stop offset="1" stopColor="#22d3ee" />
+          <stop offset="0" stopColor="#c8b6ff" />
+          <stop offset="1" stopColor="#ffd6a5" />
         </linearGradient>
         <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="8" />
@@ -35,7 +35,7 @@ export function NetworkArt() {
         {INPUTS.map((n, i) => (
           <linearGradient key={i} id={`in-g${i}`} gradientUnits="userSpaceOnUse" x1="120" y1={n.y} x2={CORE.x} y2={CORE.y}>
             <stop offset="0" stopColor={n.c} stopOpacity=".9" />
-            <stop offset="1" stopColor="#8b6cff" stopOpacity=".5" />
+            <stop offset="1" stopColor="#c8b6ff" stopOpacity=".5" />
           </linearGradient>
         ))}
       </defs>
@@ -61,12 +61,12 @@ export function NetworkArt() {
       ))}
 
       <path d={OUT_PATH} stroke="url(#ring-g)" strokeWidth="2" opacity=".6" />
-      <circle r="3.5" fill="#22d3ee">
+      <circle r="3.5" fill="#ffd6a5">
         <animateMotion dur="1.2s" repeatCount="indefinite" path={OUT_PATH} />
       </circle>
 
       <g transform={`translate(${CORE.x} ${CORE.y})`}>
-        <circle r="62" fill="#6d4cff" opacity=".35" filter="url(#glow)" />
+        <circle r="62" fill="#b39dff" opacity=".35" filter="url(#glow)" />
         <circle r="46" fill="url(#core-g)" />
         <g className="spin">
           <circle r="58" fill="none" stroke="url(#ring-g)" strokeWidth="2" strokeDasharray="60 304" strokeLinecap="round" />

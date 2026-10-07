@@ -36,8 +36,8 @@ export const TrainPanel = forwardRef<HTMLElement, Props>(function TrainPanel({ t
         <svg viewBox="0 0 140 140" className="core-ring">
           <defs>
             <linearGradient id="train-ring" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stopColor="#8b6cff" />
-              <stop offset="1" stopColor="#22d3ee" />
+              <stop offset="0" stopColor="#c8b6ff" />
+              <stop offset="1" stopColor="#ffd6a5" />
             </linearGradient>
           </defs>
           <circle cx="70" cy="70" r={R} className="ring-track" />
