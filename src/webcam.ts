@@ -13,6 +13,11 @@ export class Webcam {
     this.videos.add(video);
     try {
       const stream = await this.start();
+      // Detached while the camera was starting: don't leave the light on.
+      if (!this.videos.has(video)) {
+        if (!this.videos.size) this.stop();
+        return;
+      }
       this.show(video, stream);
     } catch (e) {
       this.videos.delete(video);
